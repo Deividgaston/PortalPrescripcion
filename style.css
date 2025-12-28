@@ -1,0 +1,282 @@
+
+/* ============================================================
+   PRESUPUESTOS 2N - PREMIUM SAAS ARCHITECTURE 2026
+   "The Absolute UI/UX Refactor"
+   ============================================================ */
+
+:root {
+  /* Core Brand */
+  --p-primary: #2563eb;
+  --p-primary-dark: #1e40af;
+  --p-primary-soft: #eff6ff;
+  --p-accent: #0ea5e9;
+  
+  /* Status Colors */
+  --p-success: #10b981;
+  --p-warning: #f59e0b;
+  --p-error: #ef4444;
+  
+  /* Surfaces & Borders */
+  --p-bg: #f8fafc;
+  --p-surface: #ffffff;
+  --p-surface-muted: #f1f5f9;
+  --p-border: #e2e8f0;
+  --p-border-focus: #94a3b8;
+  
+  /* Typography */
+  --p-text-main: #0f172a;
+  --p-text-muted: #475569;
+  --p-text-light: #94a3b8;
+  
+  /* Elevation & Shadows */
+  --p-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --p-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --p-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.03), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+  --p-shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  
+  /* Radii */
+  --p-radius-md: 10px;
+  --p-radius-lg: 16px;
+  --p-radius-xl: 24px;
+  
+  /* Animation */
+  --p-transit: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background-color: var(--p-bg);
+  color: var(--p-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   BOTONES PREMIUM (SaaS Refactor)
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--p-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--p-transit);
+  gap: 0.625rem;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--p-text-main);
+  border: 1px solid var(--p-border);
+}
+
+.btn-secondary:hover {
+  background: var(--p-surface-muted);
+}
+
+.btn-icon-logout {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: var(--p-error);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--p-transit);
+}
+
+.btn-icon-logout:hover {
+  background: var(--p-error);
+  color: #ffffff;
+}
+
+/* ============================================================
+   TOP BAR & NAVEGACIÓN
+   ============================================================ */
+.top-bar {
+  height: 72px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid var(--p-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top-bar-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+}
+
+.brand-logo {
+  background: var(--p-primary);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.35rem;
+  background: #f1f5f9;
+  padding: 0.35rem;
+  border-radius: var(--p-radius-lg);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-item {
+  text-decoration: none;
+  color: var(--p-text-muted);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--p-radius-md);
+  transition: var(--p-transit);
+  white-space: nowrap;
+}
+
+.nav-item:hover:not(.active) {
+  color: var(--p-primary);
+  background: rgba(255,255,255,0.5);
+}
+
+.nav-item.active {
+  background: #ffffff;
+  color: var(--p-primary);
+  box-shadow: var(--p-shadow-sm), inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+/* ============================================================
+   MAIN CONTENT & COMPONENTS
+   ============================================================ */
+.main-content {
+  padding: 2.5rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/**
+ * Premium SaaS Card Component
+ */
+.card {
+  background: var(--p-surface);
+  border-radius: var(--p-radius-lg);
+  border: 1px solid var(--p-border);
+  box-shadow: var(--p-shadow-md);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: var(--p-transit);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--p-shadow-lg);
+  border-color: var(--p-border-focus);
+}
+
+/* Modales */
+.modal-system {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+}
+.modal-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  animation: slideUp 0.3s ease-out;
+}
+.modal-card {
+  background: #fff;
+  border-radius: var(--p-radius-xl);
+  box-shadow: var(--p-shadow-premium);
+  border: 1px solid var(--p-border);
+  overflow: hidden;
+}
+
+/* Animaciones */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .top-bar-container { padding: 0 1rem; }
+  .brand-name { display: none; }
+  .main-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: var(--p-radius-xl);
+    padding: 8px;
+    z-index: 1001;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+  .nav-item { color: #94a3b8; font-size: 0.75rem; padding: 0.5rem 0.75rem; }
+  .nav-item.active { background: var(--p-primary); color: #fff; }
+}
